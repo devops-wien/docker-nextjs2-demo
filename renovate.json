@@ -1,17 +1,16 @@
 {
-  "extends": ["config:base"],
-  "lockFileMaintenance": true,
+  "extends": [
+    "config:base"
+  ],
   "packageRules": [
     {
-      "packagePatterns": ["*"]
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     },
     {
-      "depTypeList": ["dependencies"],
-      "groupName": "dependencies"
-    },
-    {
-      "depTypeList": ["devDependencies"],
-      "groupName": "devDependencies"
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
     }
-  ]
+  ],
+  "platformAutomerge": true
 }
