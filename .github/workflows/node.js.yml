@@ -37,6 +37,6 @@ jobs:
 
     - run: yarn install --frozen-lockfile
     - run: yarn ci
-    - run: yarn build-storybook
+    # - run: yarn build-storybook
     - run: yarn build
 
