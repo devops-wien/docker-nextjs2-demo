@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 import Greeting from '@/components/Greeting'
 import ImageLink from '@/components/ImageLink/ImageLink'
@@ -7,16 +8,17 @@ const gitRawMediaUrl = 'https://raw.githubusercontent.com/devops-wien/devops-wie
 const zone = process.env.NEXT_PUBLIC_ZONE ? process.env.NEXT_PUBLIC_ZONE : 'local'
 
 export default function IndexPage() {
-  const [city] = useState(zone)
-  const [country] = useState(setFlag(zone))
+  const [city, setCity] = useState(zone)
+  const [country, setCountry] = useState(setFlag(zone))
+  const router = useRouter()
 
-  // TODO countdown 3 sec + reload
-  /*useEffect(() => {
-      setTimeout(() => {
-        setCity(process.env.NEXT_PUBLIC_ZONE)
-        setCountry(setFlag(city))
-      }, 5000)
-    })*/
+  useEffect(() => {
+    setTimeout(() => {
+      router.reload()
+      setCity(zone)
+      setCountry(setFlag(city))
+    }, 3000)
+  })
   return (
     <div>
       <div className="py-20">
