@@ -4,18 +4,19 @@ import Greeting from '@/components/Greeting'
 import ImageLink from '@/components/ImageLink/ImageLink'
 
 const gitRawMediaUrl = 'https://raw.githubusercontent.com/devops-wien/devops-wien-assets/main/images/'
+const zone = process.env.NEXT_PUBLIC_ZONE ? process.env.NEXT_PUBLIC_ZONE : 'local'
 
 export default function IndexPage() {
-  const [city] = useState(process.env.NEXT_PUBLIC_ZONE)
-  const [country] = useState(setFlag(process.env.NEXT_PUBLIC_ZONE))
+  const [city] = useState(zone)
+  const [country] = useState(setFlag(zone))
 
   // TODO countdown 3 sec + reload
   /*useEffect(() => {
-    setTimeout(() => {
-      setCity(process.env.NEXT_PUBLIC_ZONE)
-      setCountry(setFlag(city))
-    }, 5000)
-  })*/
+      setTimeout(() => {
+        setCity(process.env.NEXT_PUBLIC_ZONE)
+        setCountry(setFlag(city))
+      }, 5000)
+    })*/
   return (
     <div>
       <div className="py-20">
@@ -67,18 +68,24 @@ export default function IndexPage() {
 }
 
 function setFlag(city: string) {
+  let flag = ''
   switch (city) {
     case 'at-vie-1':
-      return '🇦🇹'
+      flag = '🇦🇹'
+      break
     case 'at-fra-1':
     case 'de-muc-1':
-      return '🇩🇪'
+      flag = '🇩🇪'
+      break
     case 'ch-dk-2':
     case 'ch-gva-2':
-      return '🇨🇭'
+      flag = '🇨🇭'
+      break
     case 'bg-sof-1':
-      return '🇧🇬'
+      flag = '🇧🇬'
+      break
     default:
       return '🏁'
   }
+  return flag
 }
