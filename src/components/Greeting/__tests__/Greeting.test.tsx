@@ -8,7 +8,7 @@ describe('Greeting', () => {
   test('propsを渡さないとき、worldという文字が表示される', () => {
     render(<Greeting />)
 
-    expect(screen.getByText('world')).toBeInTheDocument()
+    expect(screen.getByText('local')).toBeInTheDocument()
   })
 
   test('targetの値をtestとした、testという文字が表示される', () => {
