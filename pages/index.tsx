@@ -25,6 +25,10 @@ export default function IndexPage() {
             href={'https://events.exoscale.com/exoscale-acceler8-vienna'}
           />
           <ImageLink
+            imageSrc={gitRawMediaUrl + 'dockerhub_image.png'}
+            href={'https://hub.docker.com/r/devopswien/docker-nextjs-demo'}
+          />
+          <ImageLink
             imageSrc={gitRawMediaUrl + 'terraform_registries.png'}
             href={'https://registry.terraform.io/search/modules?q=devops.wien'}
           />
