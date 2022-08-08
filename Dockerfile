@@ -4,10 +4,13 @@ COPY package*.json ./
 RUN npm ci
 
 FROM node:18
+ADD "entrypoint.sh" "/"
+RUN chmod +x "/entrypoint.sh"
+
 WORKDIR /usr/src/app
 
 COPY . .
 COPY --from=build /usr/src/app/node_modules /usr/src/app/node_modules
 
 EXPOSE 3000
-CMD [ "npm", "run", "dev" ]
+ENTRYPOINT ["/entrypoint.sh"]

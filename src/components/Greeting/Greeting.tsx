@@ -15,7 +15,7 @@ export const Component: React.FC<Props> = (props) => (
 )
 
 const Container: React.FC<ContainerProps> = (props) => {
-  const target = props.target || 'world'
+  const target = props.target || 'local'
 
   return <Component target={target} />
 }
