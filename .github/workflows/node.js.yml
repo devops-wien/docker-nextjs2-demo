@@ -35,8 +35,8 @@ jobs:
           node_modules
         key: node-v${{ matrix.node-version }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
 
-    - run: yarn install --frozen-lockfile
-    - run: yarn ci
+    - run: npm install
+    - run: npm ci
     # - run: yarn build-storybook
-    - run: yarn build
+    - run: npm run build
 
