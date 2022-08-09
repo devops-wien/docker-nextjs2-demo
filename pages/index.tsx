@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { useCountdown } from 'react-countdown-circle-timer'
 
 import Greeting from '@/components/Greeting'
 import ImageLink from '@/components/ImageLink/ImageLink'
@@ -7,22 +8,33 @@ import ImageLink from '@/components/ImageLink/ImageLink'
 const gitRawMediaUrl = 'https://raw.githubusercontent.com/devops-wien/devops-wien-assets/main/images/'
 const zone = process.env.NEXT_PUBLIC_ZONE ? process.env.NEXT_PUBLIC_ZONE : 'local'
 
+const zones = ['at-vie-1', 'bg-sof-1', 'ch-dk-2', 'ch-gva-2', 'de-fra-1', 'de-muc-1']
+
 export default function IndexPage() {
   const [city, setCity] = useState(zone)
   const [country, setCountry] = useState(setFlag(zone))
   const router = useRouter()
+  const { remainingTime } = useCountdown({ isPlaying: true, duration: 10, colors: '#35a627' })
 
   useEffect(() => {
+    let redirect = zones[Math.floor(Math.random() * 6)]
+    while (city == redirect) redirect = zones[Math.floor(Math.random() * 6)]
     setTimeout(() => {
+      //TODO: subdomains not available yet
+      //location.href = 'https://' + redirect + '.devops.wien'
+
       router.reload()
       setCity(zone)
       setCountry(setFlag(city))
-    }, 3000)
+    }, 10000)
   })
+
   return (
     <div>
       <div className="py-20">
         <Greeting target={city + ',' + country} />
+        <div className="mx-auto text-center">Site performs refresh in {remainingTime} seconds</div>
+
         <div className="grid grid-cols-3 relative h-full w-full gap-8 p-8">
           <ImageLink
             imageSrc={gitRawMediaUrl + 'exoscale_event_small.png'}
