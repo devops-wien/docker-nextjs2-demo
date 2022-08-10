@@ -12,6 +12,5 @@
       "automerge": true
     }
   ],
-  "platformAutomerge": true,
-  "includeForks": true
+  "platformAutomerge": true
 }
