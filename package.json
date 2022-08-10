@@ -27,10 +27,11 @@
     ]
   },
   "dependencies": {
+    "@testing-library/react": "^13.3.0",
+    "@types/react": "^18.0.17",
     "next": "^12.2.4",
-    "react": "^17.0.2",
-    "react-countdown-circle-timer": "^3.0.9",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-countdown-circle-timer": "^3.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -40,11 +41,10 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.2.9",
     "@storybook/react": "6.5.10",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.4",
-    "@testing-library/react-hooks": "8.0.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.3.0",
     "@types/node": "16.11.47",
-    "@types/react": "^17.0.8",
+    "@types/react": "^18.0.17",
     "@typescript-eslint/eslint-plugin": "5.33.0",
     "@typescript-eslint/parser": "5.33.0",
     "autoprefixer": "^10.2.6",
@@ -64,7 +64,8 @@
     "lint-staged": "13.0.3",
     "postcss": "^8.3.0",
     "prettier": "^2.2.1",
-    "react-test-renderer": "^17.0.1",
+    "react-dom": "^18.2.0",
+    "react-test-renderer": "^18.2.0",
     "tailwindcss": "3.1.8",
     "typescript": "^4.3.2"
   },
